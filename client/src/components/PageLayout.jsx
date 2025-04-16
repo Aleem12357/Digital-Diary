@@ -30,7 +30,7 @@ const PageLayout = ({
 
             {/* Main Content Area */}
             <div className={`pt-28 transition-all duration-300 ease-in-out ${isSidebarOpen ? "ml-64" : "ml-0"}`}>
-                <main className="container mx-auto px-4 py-6">
+                <main className="container mx-auto px-4 py-6 ">
                     {children || (
                         <>
                             <div className="flex justify-around gap-4 mb-6">

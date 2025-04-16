@@ -7,14 +7,14 @@ import {
     FaExpand,
     FaArrowLeft,
     FaCalendarAlt,
-    FaBookOpen,
-    FaClipboardCheck,
     FaClipboardList,
+    FaUserCircle,
+    FaSignOutAlt,
     FaFileInvoiceDollar,
-    FaCommentDots,
     FaChartBar,
     FaBell as FaBellIcon
 } from "react-icons/fa";
+
 import logo from "../assets/images/logo.png";
 import background from "../assets/images/School.png";
 
@@ -55,8 +55,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, bgColor }) => {
     const menuItems = [
         { label: "Notifications", icon: <FaBellIcon className="text-2xl" /> },
         { label: "DateSheet", icon: <FaCalendarAlt className="text-2xl" /> },
-        { label: "Enrolled Courses", icon: <FaBookOpen className="text-2xl" /> },
-        { label: "Attendance", icon: <FaClipboardCheck className="text-2xl" /> },
+        // { label: "Attendance", icon: <FaClipboardCheck className="text-2xl" /> },
         { label: "Time Table", icon: <FaClipboardList className="text-2xl" /> },
         { label: "Invoices", icon: <FaFileInvoiceDollar className="text-2xl" /> },
         { label: "Results", icon: <FaChartBar className="text-2xl" /> },
@@ -106,28 +105,36 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, bgColor }) => {
             </div>
 
             <div className="relative flex items-center space-x-4">
+            <FaExpand className="text-xl cursor-pointer" />
+            <FaBell className="text-xl cursor-pointer" />
                 <div className="cursor-pointer" onClick={() => setDropdownOpen(!dropdownOpen)}>
                     <img
                         src={profilePic}
                         alt="Profile"
-                        className="w-8 h-8 rounded-full object-cover"
+                        className="w-9 h-9 rounded-full object-cover border-2 border-[#6E4D91]"
                     />
                 </div>
 
                 {dropdownOpen && (
-                    <div className="absolute top-12 right-0 bg-white text-black shadow-lg rounded-md w-40 z-50">
+                    <div className="absolute top-12 right-2 bg-white text-black shadow-2xl rounded-md w-44 z-50 py-2 animate-fade-in">
+                    <button
+                            onClick={() => navigate("/profile")}
+                            className="flex items-center gap-2 px-4 py-2 w-full text-left text-sm hover:bg-gray-200"
+                        >
+                            <FaUserCircle className="text-lg" />
+                            My Profile
+                        </button>
                         <button
                             onClick={handleSignOut}
-                            className="block w-full text-left px-4 py-2 hover:bg-gray-100"
+                            className="flex items-center gap-2 px-4 py-2 w-full text-left text-sm hover:bg-gray-200 "
                         >
-                            Sign Out
+                            <FaSignOutAlt className="text-lg" />
+                            Log out
                         </button>
                     </div>
                 )}
-
-                <FaExpand className="text-xl cursor-pointer" />
-                <FaBell className="text-xl cursor-pointer" />
             </div>
+
         </header>
     );
 };

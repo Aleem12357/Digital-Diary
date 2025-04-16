@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Breadcrumb from "../../components/Breadcrumb";
 import Cards from "../../components/Cards.jsx";
-import background from "../../assets/images/School.png";
+import background from "../../assets/images/logo.png";
 
 
 const bgColor = "#1F3F6A";
@@ -16,44 +16,50 @@ const Home = () => {
 
     const student = {
         name: storedUser ? storedUser.name : "Aleem",
-        rollNo: "21F-1234",
-        faculty: "Computer Science",
-        semester: 6,
-        creditHours: 92,
-        gpa: 3.5,
-        cgpa: 3.6,
+        rollNo: "21",
+        class: 10,
+        percentage: 89,
+        
     };
 
-    const semester6Cards = [
-        { title: "Maths", text: "Brainstorm and finalize your project idea.", path: "/student/idea-selection" },
-        { title: "English", text: "Form your project group and collaborate.", path: "/student/group-formation" },
-        { title: "Urdu", text: "Manage project documentation with your advisor.", path: "/student/advisor" },
+    const class5Cards = [
+        { title: "Maths", text: "Aslam Ranja", path: "/Maths" },
+        { title: "English", text: "Mahnoor", path: "/English" },
+        { title: "Urdu", text: "Nusrat jabeen", path: "/Urdu" },
     ];
 
-    const semester7Cards = [
-        { title: "Pak Studies", text: "Submit your project proposal for approval.", path: "/proposal-submission" },
-        { title: "English", text: "Conduct research and collect data for your project.", path: "/research-work" },
+    const class10Cards = [
+        { title: "Pak Studies", text: "Ahmed iftikhar", path: "/Pak-Studies" },
+        { title: "English", text: "Zahra Nawaz", path: "/English" },
+        { title: "Urdu", text: "Nusrat jabeen", path: "/Urdu" },
+        { title: "Maths", text: "Aslam Ranja", path: "/Maths" },
+        { title: "Physics", text: "Sarah Jawed", path: "/Physics" },
+        { title: "Chemistry", text: "Muhammad Azeem", path: "/Chemistry" },
+        { title: "Biology", text: "Kinza", path: "/Biology" },
+        { title: "Computer Science", text: "Maryam", path: "/Computer-Science" },
+        { title: "Islamiyat", text: "Mahnoor", path: "/Islamiyat" },
     ];
+
 
     
 
     let displayedCards = [];
-    if (student.semester === 6 && student.creditHours >= 90) {
-        displayedCards = semester6Cards;
-    } else if (student.semester === 7) {
-        displayedCards = semester7Cards;
+    if (student.class === 5 && student.creditHours >= 90) {
+        displayedCards = class5Cards;
+    } else if (student.class === 10) {
+        displayedCards = class10Cards;
     }
-    const handleSendInvite = () => {
-        if (!inviteEmail.includes("@")) {
-            setInviteMessage(" Please enter a valid email.");
-            return;
-        }
+    // const handleSendInvite = () => {
+    //     if (!inviteEmail.includes("@")) {
+    //         setInviteMessage(" Please enter a valid email.");
+    //         return;
+    //     }
 
-        setTimeout(() => {
-            setInviteMessage(` Invite sent to ${inviteEmail}`);
-            setInviteEmail("");
-        }, 1000);
-    };
+    //     setTimeout(() => {
+    //         setInviteMessage(` Invite sent to ${inviteEmail}`);
+    //         setInviteEmail("");
+    //     }, 1000);
+    // };
 
     return (
         // <div className="font-sans flex flex-col min-h-screen">
@@ -63,45 +69,43 @@ const Home = () => {
         //         <Sidebar isSidebarOpen={isSidebarOpen} bgColor={bgColor} />
 
         <div className={`flex-1 transition-all duration-300 ease-in-out pt-4 ${isSidebarOpen ? "ml-64" : "ml-0"}`}>
-            <div className="mt-10">
+            <div className="mt-10 bg-white/70 backdrop-blur-md  pb-1 shadow-2xl border border-gray-300">
                 <Breadcrumb exclude={["student"]} bgColor={bgColor} />
             </div>
+            <div className="bg-white/70 backdrop-blur-md m-4 pb-4 rounded-2xl shadow-2xl border border-gray-300 ">
 
-            <div className="flex flex-col md:flex-row items-start mt-4">
+            <div className="pt-4 ps-6 justify-evenly ">
+                        <p className="text-gray-800 font-semibold text-lg">Academics</p>
+                       
+            </div>
+            <div className="flex flex-col md:flex-row mt-4  items-center">
                 <div className="flex items-center">
 
                     <img
                         src={profilePic}
                         alt="Profile"
-                        className="w-16 h-16 rounded-full object-cover mr-4 ml-4"
+                        className="w-25 h-25 rounded-full object-cover mr-4 ml-4"
                     />
-                    <div>
-                        <p className="text-gray-800 font-semibold">{student.name}</p>
-                        <p className="text-gray-600">Roll No: {student.rollNo}</p>
-                        <p className="text-gray-600">Faculty: {student.faculty}</p>
-                    </div>
                 </div>
+                    <div className="pt-0  justify-evenly text-center md:text-left">
+                        <p className="text-gray-800 font-semibold">Name: {student.name}</p>
+                        <p className="text-gray-600">Roll No: {student.rollNo}</p>
+                        <p className="text-gray-600">Class: {student.class}</p>
+                    </div>
 
-                <div className="mt-4 md:mt-0 md:ml-16 flex flex-grow justify-evenly">
-                    <div className="text-gray-700">
-                        <h2 className="font-semibold">Project Standings</h2>
-                        <p className="text-sm text-gray-500">Project Completion %</p>
+                <div className="mt-4 md:mt-0 md:ml-16  flex flex-grow justify-evenly">
+                    <div className="text-gray-700 ">
+                        <h2 className="font-semibold">Previous Results</h2>
+                        <p className="text-gray-600">Percentage%: {student.percentage}</p>
                     </div>
-                    <div className="text-gray-700">
-                        <h2 className="font-semibold">Earned Credit Hours</h2>
-                        <p className="text-sm text-gray-500">Total: {student.creditHours}</p>
-                    </div>
-                    <div className="text-gray-700">
-                        <h2 className="font-semibold">Academic Standings</h2>
-                        <p className="text-sm text-gray-500">GPA: {student.gpa}</p>
-                        <p className="text-sm text-gray-500">CGPA: {student.cgpa}</p>
-                    </div>
+              
                 </div>
             </div>
 
 
             <div className="px-4">
                 <Cards bgColor={bgColor} cardData={displayedCards} />
+            </div>
             </div>
         </div>
     );

@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 
 const studentLayout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const bgColor = "#1F3F6A";
+    const bgColor = "#8760B2";
 
     return (
         <div className="flex">
