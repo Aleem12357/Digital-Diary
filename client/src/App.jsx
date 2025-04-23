@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Login from './pages/Login'
+import StudentLayout from './layout/StudentLayout'
+
+import Home from './pages/students/Home.jsx'
 import './App.css'
 
 function App() {
@@ -13,16 +16,14 @@ function App() {
 
 
         <Route path="/" element={<Login />} />
-
-
-        <Route path="/student" element={<Login />}>
-          {/* <Route path="dashboard" element={<Home />} />
-          <Route path="idea-selection" element={<IdeaSelection />} />
-          <Route path="group-formation" element={<GroupFormation />} />
-          <Route path="advisor" element={<AdvisorSelection />} />
-          <Route path="profile" element={<StudentProfilePage />} /> */}
-
+        
+      {/* Student   Routes */}
+        <Route path="/student" element={<StudentLayout />}>
+          <Route path="dashboard" element={<Home />} />
         </Route>
+
+
+
       </Routes>
     </Router>
    </div>
