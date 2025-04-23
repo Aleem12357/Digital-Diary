@@ -41,33 +41,15 @@ const Home = () => {
     ];
 
 
-    
-
     let displayedCards = [];
     if (student.class === 5 && student.creditHours >= 90) {
         displayedCards = class5Cards;
     } else if (student.class === 10) {
         displayedCards = class10Cards;
     }
-    // const handleSendInvite = () => {
-    //     if (!inviteEmail.includes("@")) {
-    //         setInviteMessage(" Please enter a valid email.");
-    //         return;
-    //     }
-
-    //     setTimeout(() => {
-    //         setInviteMessage(` Invite sent to ${inviteEmail}`);
-    //         setInviteEmail("");
-    //     }, 1000);
-    // };
 
     return (
-        // <div className="font-sans flex flex-col min-h-screen">
-        //     <Navbar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} bgColor={bgColor} />
-
-        //     <div className="flex mt-10 transition-all duration-300 ease-in-out">
-        //         <Sidebar isSidebarOpen={isSidebarOpen} bgColor={bgColor} />
-
+      
         <div className={`flex-1 transition-all duration-300 ease-in-out pt-4 ${isSidebarOpen ? "ml-64" : "ml-0"}`}>
             <div className="mt-10 bg-white/70 backdrop-blur-md  pb-1 shadow-2xl border border-gray-300">
                 <Breadcrumb exclude={["student"]} bgColor={bgColor} />
