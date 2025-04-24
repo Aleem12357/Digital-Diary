@@ -24,6 +24,8 @@ export default function CustomSeparator({ exclude = [] }) {
     textDecoration: "none",
     outline: "none",
     boxShadow: "none",
+    cursor: "pointer", 
+
     "&:hover": {
       color: "#5e3d99", // a darker purple shade on hover
       textDecoration: "none",
@@ -69,6 +71,7 @@ export default function CustomSeparator({ exclude = [] }) {
 
       return isLast ? (
         <Typography
+        component={RouterLink}
           key={index}
           sx={{ color: bgColor, fontWeight: "bold", textTransform: "capitalize" }}
         >

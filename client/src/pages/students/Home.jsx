@@ -7,9 +7,8 @@ import background from "../../assets/images/logo.png";
 const bgColor = "#1F3F6A";
 
 const Home = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [inviteEmail, setInviteEmail] = useState("");
-    const [inviteMessage, setInviteMessage] = useState("");
+    // const [inviteEmail, setInviteEmail] = useState("");
+    // const [inviteMessage, setInviteMessage] = useState("");
     const storedUser = JSON.parse(localStorage.getItem("googleUser"));
 
     const profilePic = storedUser?.picture || background;
@@ -50,7 +49,7 @@ const Home = () => {
 
     return (
       
-        <div className={`flex-1 transition-all duration-300 ease-in-out pt-4 ${isSidebarOpen ? "ml-64" : "ml-0"}`}>
+        <div className="pt-4">
             <div className="mt-10 bg-white/70 backdrop-blur-md  pb-1 shadow-2xl border border-gray-300">
                 <Breadcrumb exclude={["student"]} bgColor={bgColor} />
             </div>

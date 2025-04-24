@@ -79,7 +79,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, bgColor }) => {
 
                 <img src={logo} alt="UCP Logo" className="h-14" />
                 <div>
-                    <h1 className="text-lg font-semibold">Workers Welfare School</h1>
+                    <h1 className="text-xs sm:text-sm md:text-lg font-semibold">Workers Welfare School</h1>
                     <p className="text-xs text-gray-200">Learn & Serve</p>
                 </div>
 
@@ -89,7 +89,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen, bgColor }) => {
                         ref={menuRef}
                         className="absolute top-16 left-10 w-[600px] bg-white text-black shadow-lg rounded-md p-6 z-50 animate-slide-down"
                     >
-                        <div className="grid grid-cols-3 gap-6 text-center">
+                        <div className="hidden md:grid grid-cols-3 gap-6 text-center">
                             {menuItems.map((item) => (
                                 <div
                                     key={item.label}

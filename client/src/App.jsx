@@ -4,6 +4,7 @@ import Login from './pages/Login'
 import StudentLayout from './layout/StudentLayout'
 
 import Home from './pages/students/Home.jsx'
+import SubjectPage from './pages/students/SubjectPages.jsx'
 import './App.css'
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
       {/* Student   Routes */}
         <Route path="/student" element={<StudentLayout />}>
           <Route path="dashboard" element={<Home />} />
+          <Route path="subject/:subjectName" element={<SubjectPage />} />
+
         </Route>
 
 
